@@ -45,7 +45,8 @@ def main():
 
     sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users (
                                         id integer PRIMARY KEY,
-                                        name text NOT NULL
+                                        name text NOT NULL,
+                                        phonenum integer
                                     )"""
 
 
