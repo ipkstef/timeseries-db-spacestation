@@ -1,24 +1,11 @@
+import sys 
+import os 
+sys.path.append(os.path.abspath("../"))
+from comconnection import startdb_connection
 import sqlite3
 from sqlite3 import Error
 
 
-def create_connection(db_file):
-	""" lets make a function that returns a connection object"""
-
-	conn = None 
-
-	try:
-
-		conn = sqlite3.connect(db_file)
-		print(sqlite3.version)
-		return conn
-
-
-	except Error as e:
-
-		print(e)
-
-	return conn
 
 
 """ create table function accepts the connection object from create_connection and an sql statement"""
@@ -40,31 +27,32 @@ def create_table(conn, create_table_sql):
 
 
 
-def main():
-    database = "employee.db"
+def initialize_table():
+    database = os.path.relpath('./data/iss_timeseries.db')
 
-    sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users (
-                                        id integer PRIMARY KEY,
-                                        name text NOT NULL,
-                                        phonenum integer
+    sql_create_iss_table = """ CREATE TABLE IF NOT EXISTS iss_time_series (
+                                        unixtimestamp integer PRIMARY KEY,
+                                        latitude real NOT NULL,
+                                        longitude real 	NOT NULL,
+                                        est_date text
                                     )"""
 
 
 
     # create a database connection
-    conn = create_connection(database)
+    conn = startdb_connection.create_connection(database)
 
     # create tables
     if conn is not None:
         # create projects table
-        create_table(conn, sql_create_users_table)
+        create_table(conn, sql_create_iss_table)
 
     else:
         print("error line 63")
 
 
 if __name__ == '__main__':
-    main()
+    initialize_table()
 
 
 
