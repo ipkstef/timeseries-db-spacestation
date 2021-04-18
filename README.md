@@ -1,6 +1,6 @@
-#Project Layout
+# Project Layout
 
-##Functions and Modules
+## Functions and Modules
 
 * /data
 	* create_db_table.py contains the functions 

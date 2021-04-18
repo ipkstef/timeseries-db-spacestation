@@ -1,5 +1,3 @@
-#from data import create_user,create_db_table
-from comconnection import startdb_connection
 from data import create_user
 import os
 import urllib2
