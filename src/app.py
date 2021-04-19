@@ -1,6 +1,6 @@
 from data import create_user
 import os
-import urllib2
+import urllib.request as urllib2
 import json
 from datetime import datetime
 

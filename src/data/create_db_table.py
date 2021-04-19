@@ -18,15 +18,15 @@ def create_table(conn, create_table_sql):
 
 
 
-	""" create a table from the create_table_sql statement 'sql_create_$projectid_table'
+	#create a table from the create_table_sql statement 'sql_create_$projectid_table'
 
-	define your variables fool
+	#define your variables fool
 
-	:param conn: Connection Object
-	:param create_table_sql: a CREATE TABLE statement
-	:return 
+	#:param conn: Connection Object
+	#:param create_table_sql: a CREATE TABLE statement
+	#:return 
 
-	"""
+	
 
 
 def initialize_table():
