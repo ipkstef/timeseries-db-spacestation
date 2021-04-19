@@ -10,6 +10,14 @@ from sqlite3 import Error
 
 """ create table function accepts the connection object from create_connection and an sql statement"""
 def create_table(conn, create_table_sql):
+    try:
+        c = conn.cursor()
+        c.execute(create_table_sql)
+    except Error as e:
+        print(e)
+
+
+
 	""" create a table from the create_table_sql statement 'sql_create_$projectid_table'
 
 	define your variables fool
@@ -19,16 +27,10 @@ def create_table(conn, create_table_sql):
 	:return 
 
 	"""
- 	try:
- 		c = conn.cursor()
- 		c.execute(create_table_sql)
- 	except Error as e:
- 		print(e)
-
 
 
 def initialize_table():
-    database = os.path.relpath('./data/iss_timeseries.db')
+    database = "iss_timeseries.db"
 
     sql_create_iss_table = """ CREATE TABLE IF NOT EXISTS iss_time_series (
                                         unixtimestamp integer PRIMARY KEY,
@@ -48,7 +50,7 @@ def initialize_table():
         create_table(conn, sql_create_iss_table)
 
     else:
-        print("error line 63")
+        print("error line 51")
 
 
 if __name__ == '__main__':
