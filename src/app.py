@@ -21,7 +21,7 @@ def main():
 			print(e, + "this is in response requests error")
 		else:
 			#write to db
-			create_user.write_user(obj['timestamp'],obj['iss_position']['latitude'], obj['iss_position']['latitude'],datetime.now().date())
+			create_user.write_user(obj['timestamp'],obj['iss_position']['latitude'], obj['iss_position']['longitude'],datetime.now().date())
 		time.sleep(5)
 
 
